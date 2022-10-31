@@ -16,7 +16,7 @@ env:
   Rec_name: Ofox
   BASE_VER: 9
   FOX_BRANCH: "fox_9.0"
-  #Rec_url: https://github.com/skyhuppa/sync.git -b master
+  Rec_url: https://github.com/skyhuppa/sync.git -b master
   device: x554
   # DT_url: https://github.com/skyhuppa/Realme_8_RMX3085 -b fox_11.0
   DT_url: hhttps://github.com/skyhuppa/x554-twrp -b twrp-9.0
@@ -24,7 +24,7 @@ env:
   DT_path: device/infinix/x554
   ProductFileHeader: twrp
   target: recoveryimage
-  WorkSpace: WorkSpace
+  WorkSpace: OrangeFox_sync
   TZ: Africa/Accra
   Author: ${{github.actor}}
   Delete_old: false
@@ -77,10 +77,15 @@ jobs:
       - name: Sync recovery source
         run: |
              mkdir ${{env.WorkSpace}}
-             cd ${{env.WorkSpace}}
-             chmod +x orangefox_sync.sh
-             bash orangefox_sync.sh
-          
+             git clone ${{env.Rec_url}} --depth=1 --single-branch
+             cd sync
+             echo "::group::Orangefox_sync help"
+             ./orangefox_sync.sh --help
+             echo "::endgroup::"
+             echo "::group::Run Orangefox_sync.sh"
+             ./orangefox_sync.sh --branch ${{env.Rec_ver}} --path ${{github.workspace}}/${{env.WorkSpace}} --ssh 0
+             echo "::endgroup::"
+
       - name: Sync device tree
         run: |
           cd ${{env.WorkSpace}}
