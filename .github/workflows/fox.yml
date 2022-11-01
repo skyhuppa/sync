@@ -77,7 +77,7 @@ jobs:
       - name: Build Recovery
         run: |
              # mkdir ${{env.WorkSpace}}
-             bash ./orangefox_sync.sh --branch 9.0 --path ~/fox_9.0
+             bash orangefox_sync.sh --branch 9.0 --path ~/fox_9.0
              
 
           
