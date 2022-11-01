@@ -74,10 +74,10 @@ jobs:
    #      echo "::set-output name=date::$(date +%F)"
    #     id: var
       
-      - name: Sync recovery source
+      - name: Build Recovery
         run: |
              # mkdir ${{env.WorkSpace}}
-             bash orangefox_sync.sh
+             bash ./orangefox_sync.sh --branch 9.0 --path ~/fox_9.0
              
 
           
