@@ -24,7 +24,7 @@ env:
   DT_path: device/infinix/x554
   ProductFileHeader: twrp
   target: recoveryimage
-  WorkSpace: orangefox_sync
+  WorkSpace: workspace
   TZ: Africa/Accra
   Author: ${{github.actor}}
   Delete_old: false
@@ -74,10 +74,22 @@ jobs:
    #      echo "::set-output name=date::$(date +%F)"
    #     id: var
       
-      - name: Build Recovery
+      - name: Sync recovery source
         run: |
-             # mkdir ${{env.WorkSpace}}
+             mkdir ${{env.WorkSpace}}
+             cd ${{env.WorkSpace}}
+             git clone https://gitlab.com/OrangeFox/sync.git -b master
              bash orangefox_sync.sh --branch 9.0 --path ~/fox_9.0
+             
+ #     - name: Repo Sync
+ #       run: |
+ #            repo sync -j$(nproc --all) --force-sync
+ #            working-directory: ${{env.WorkSpace}}  
+             
+ #     - name: Build Recovery
+ #       run: |
+           
+   
              
 
           
