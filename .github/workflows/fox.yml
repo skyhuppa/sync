@@ -69,6 +69,13 @@ jobs:
           ssh-private-key: |
               ${{ secrets.SSH_PRIVATE_KEY }}
               
+      - name: Install repo
+        run: |
+          mkdir ~/bin
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+          chmod a+x ~/bin/repo
+          sudo ln -sf ~/bin/repo /usr/bin/repo      
+              
    #   - name: Set variables
    #     run: |
    #      echo "::set-output name=date::$(date +%F)"
