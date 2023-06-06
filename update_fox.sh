@@ -3,12 +3,12 @@
 # - Example script to sync updates to the minimal build system and OrangeFox sources
 # - There is very little error checking 
 # - Author:  DarthJabba9
-# - Version: generic:002
-# - Date:    13 December 2021
+# - Version: generic:005
+# - Date:    31 May 2023
 # ***************************************************************************************
 
 # the version number of this script
-SCRIPT_VERSION="20211213";
+SCRIPT_VERSION="20230531";
 
 # Our starting point (Fox base dir)
 BASE_DIR="$PWD";
@@ -32,8 +32,8 @@ help_screen() {
   echo "    -p, -P, --path <absolute_path>	root of the minimal manifest";
   echo "";
   echo "Examples:";
-  echo "    $0 --path ~/OrangeFox_11";
-  echo "    $0 --path ~/OrangeFox/9.0 --debug";
+  echo "    $0 --path ~/OrangeFox_12";
+  echo "    $0 --path ~/OrangeFox/fox_11.0 --debug";
   echo "";
   echo "- You must supply an *absolute* path for the '--path' switch";
   exit 0;
@@ -85,9 +85,9 @@ local recovery=$MANIFEST_DIR/bootable/recovery;
 local vendor=$MANIFEST_DIR/vendor/recovery;
 
   if [ ! -d "$recovery" ]; then
-     abort "- Invalid recovery directory: \"$recovery\". Quitting."
+     abort "- Invalid recovery directory: \"$recovery\". Quitting.";
   elif [ ! -d "$vendor" ]; then
-     abort "- Invalid vendor directory: \"$vendor\". Quitting."
+     abort "- Invalid vendor directory: \"$vendor\". Quitting.";
   fi
   
   # manifest
@@ -96,8 +96,8 @@ local vendor=$MANIFEST_DIR/vendor/recovery;
   cd $MANIFEST_DIR && repo sync;
   
   # recovery sources
-  cd $recovery && git pull --recurse-submodules;
-
+  cd $recovery && git pull;
+  
   # vendor tree
   echo "- Updating the OrangeFox vendor tree ...";
   cd $vendor && git pull;
