@@ -179,7 +179,7 @@ init_script() {
 get_twrp_minimal_manifest() {
   cd $MANIFEST_DIR;
   echo "-- Initialising the $TWRP_BRANCH minimal manifest repo ...";
-  repo init --depth=1 -u $MIN_MANIFEST -b $TWRP_BRANCH;
+ git init --depth=1 -u $MIN_MANIFEST -b $TWRP_BRANCH;
   [ "$?" != "0" ] && {
    abort "-- Failed to initialise the minimal manifest repo. Quitting.";
   }
