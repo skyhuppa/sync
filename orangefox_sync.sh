@@ -290,8 +290,8 @@ local DIR=$MANIFEST_DIR/device/realme;
    }
 
    # test device
-   local URL=git@gitlab.com:OrangeFox/device/"$test_build_device".git;
-   [ "$USE_SSH" = "0" ] && URL=https://gitlab.com/OrangeFox/device/"$test_build_device".git;
+   local URL=git@github.com:skyhuppa/Realme_8_RMX3085/"$test_build_device".git;
+   [ "$USE_SSH" = "0" ] && URL=https://github.com/skyhuppa/Realme_8_RMX3085/"$test_build_device".git;
    echo "-- Pulling the $test_build_device device tree ...";
    git clone $URL -b "$FOX_DEF_BRANCH" "$test_build_device";
 
