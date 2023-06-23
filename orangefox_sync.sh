@@ -226,9 +226,9 @@ clone_fox_recovery() {
 local URL="";
 local BRANCH=$FOX_BRANCH;
    if [ "$USE_SSH" = "0" ]; then
-      URL="https://gitlab.com/OrangeFox/bootable/Recovery.git";
+      URL="https://github.com/skyhuppa/bootable_Recovery.git";
    else
-      URL="git@gitlab.com:OrangeFox/bootable/Recovery.git";
+      URL="git@github.com:skyhuppa/bootable_Recovery.git";
    fi
 
    mkdir -p $MANIFEST_DIR/bootable;
@@ -253,7 +253,7 @@ local BRANCH=$FOX_BRANCH;
    rm -rf /tmp/recovery;
 
    # create the directory for Xiaomi device trees
-   mkdir -p $MANIFEST_DIR/device/xiaomi;
+   mkdir -p $MANIFEST_DIR/device/realme;
 }
 
 # get the OrangeFox vendor
@@ -282,7 +282,7 @@ local BRANCH=$FOX_BRANCH;
 
 # get device trees
 get_device_tree() {
-local DIR=$MANIFEST_DIR/device/xiaomi;
+local DIR=$MANIFEST_DIR/device/realme;
    mkdir -p $DIR;
    cd $DIR;
    [ "$?" != "0" ] && {
