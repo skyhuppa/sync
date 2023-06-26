@@ -179,7 +179,7 @@ init_script() {
 get_twrp_minimal_manifest() {
   cd $MANIFEST_DIR;
   echo "-- Initialising the $TWRP_BRANCH minimal manifest repo ...";
- repo init --depth=1 -u $MIN_MANIFEST -b $TWRP_BRANCH;
+  repo init --depth=1 -u $MIN_MANIFEST -b $TWRP_BRANCH;
   [ "$?" != "0" ] && {
    abort "-- Failed to initialise the minimal manifest repo. Quitting.";
   }
@@ -226,9 +226,9 @@ clone_fox_recovery() {
 local URL="";
 local BRANCH=$FOX_BRANCH;
    if [ "$USE_SSH" = "0" ]; then
-      URL="https://github.com/skyhuppa/bootable_Recovery.git";
+      URL="https://gitlab.com/OrangeFox/bootable/Recovery.git";
    else
-      URL="git@github.com:skyhuppa/bootable_Recovery.git";
+      URL="git@gitlab.com:OrangeFox/bootable/Recovery.git";
    fi
 
    mkdir -p $MANIFEST_DIR/bootable;
@@ -252,7 +252,7 @@ local BRANCH=$FOX_BRANCH;
    echo  "-- Cleaning up the TWRP recovery sources from /tmp";
    rm -rf /tmp/recovery;
 
-   # create the directory for Xiaomi device trees
+   # create the directory for realme device trees
    mkdir -p $MANIFEST_DIR/device/realme;
 }
 
@@ -290,8 +290,8 @@ local DIR=$MANIFEST_DIR/device/realme;
    }
 
    # test device
-   local URL=git@github.com:skyhuppa/Realme_8_RMX3085/"$test_build_device".git;
-   [ "$USE_SSH" = "0" ] && URL=https://github.com/skyhuppa/Realme_8_RMX3085/"$test_build_device".git;
+   local URL=git@gitlab.com:OrangeFox/device/"$test_build_device".git;
+   [ "$USE_SSH" = "0" ] && URL=https://gitlab.com/OrangeFox/device/"$test_build_device".git;
    echo "-- Pulling the $test_build_device device tree ...";
    git clone $URL -b "$FOX_DEF_BRANCH" "$test_build_device";
 
