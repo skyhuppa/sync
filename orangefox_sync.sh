@@ -226,9 +226,9 @@ clone_fox_recovery() {
 local URL="";
 local BRANCH=$FOX_BRANCH;
    if [ "$USE_SSH" = "0" ]; then
-      URL="https://gitlab.com/OrangeFox/bootable/Recovery.git";
+      URL="https://github.com/skyhuppa/bootable_Recovery.git";
    else
-      URL="git@gitlab.com:OrangeFox/bootable/Recovery.git";
+      URL="git@github.com:/skyhuppa/bootable_Recovery.git";
    fi
 
    mkdir -p $MANIFEST_DIR/bootable;
