@@ -252,8 +252,8 @@ local BRANCH=$FOX_BRANCH;
    echo  "-- Cleaning up the TWRP recovery sources from /tmp";
    rm -rf /tmp/recovery;
 
-   # create the directory for realme device trees
-   mkdir -p $MANIFEST_DIR/device/realme;
+   # create the directory for infinix device trees
+   mkdir -p $MANIFEST_DIR/device/infinix;
 }
 
 # get the OrangeFox vendor
@@ -282,7 +282,7 @@ local BRANCH=$FOX_BRANCH;
 
 # get device trees
 get_device_tree() {
-local DIR=$MANIFEST_DIR/device/realme;
+local DIR=$MANIFEST_DIR/device/infinix;
    mkdir -p $DIR;
    cd $DIR;
    [ "$?" != "0" ] && {
